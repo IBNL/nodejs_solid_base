@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "LowPrice Documentation",
+    "title": "nodejs_solid_base Documentation",
     "description": "This is an API",
     "version": "1.0.0",
     "contact": {
