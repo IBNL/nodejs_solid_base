@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres:15
+    container_name: database
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=igor
+      - POSTGRES_PASSWORD=1010
+      - POSTGRES_DB=database_PSQL_local
+    volumes:
+      - pgdata:/data/postgres
+  app:
+    build: .
+    container_name: nodejs_solid_base
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/src/app
+    links:
+      - database
+    depends_on:
+      - database
+
+volumes:
+  pgdata:
+    driver: local
